@@ -25,12 +25,12 @@ jobinfo(){
 
 # Print working directory a specific job
 jobwhere(){
-        sacct -j $1 --format="JobID%15,JobName%20,State,WorkDir%100" --units=G
+        sacct -j $1 --format="JobID%15,JobName%20,State,WorkDir%100" --units=G | grep -v ".extern" | grep -v ".batch"
 }
 
 # Print working directory a specific job, prints 300 characters of the workdir instead of 100
 jobwherelong(){
-        sacct -j $1 --format="JobID%15,JobName%20,State,WorkDir%300" --units=G | less -S
+        sacct -j $1 --format="JobID%15,JobName%20,State,WorkDir%300" --units=G | grep -v ".extern" | grep -v ".batch"
 }
 
 ## Return easy to read usage percentage for a finished job

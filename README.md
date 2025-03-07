@@ -95,6 +95,7 @@ You can also use it on running jobs but the memory usage is still not available
 ```
 jobinfo 17222597
 ```
+```
           JobID                        JobName      State     ReqMem     MaxRSS  Timelimit    Elapsed  ReqCPUS  AllocCPUS        NodeList 
        17222597 nf-NFCORE_RNAFUSION_RNAFUSION+    RUNNING       320G            7-06:00:00 4-05:43:59        1         12           cn028 
  17222597.batch                          batch    RUNNING                                  4-05:43:59       12         12           cn028 
@@ -112,12 +113,14 @@ For long workdirs you can use `jobwherelong` and it is better to pipe into less 
 ```
 jobwherelong 17222597
 ```
+```
           JobID              JobName      State                                                                                                                                                                                                                                                                                                      WorkDir 
        17222597 nf-NFCORE_RNAFUSION+    RUNNING                                                                                                                                                                                                                      /flask/scratch/turajlics/loboni/nfcore_rnafusion/work/f3/bc01a62110c88ac7bdcd5846aa694e
 ```
 You can retrieve easy to read usage percentage for a finished job
 ```
 jobusage 17424192
+```
 ```
 Requested 6 GB and used 1.65G GB, a usage of 27.00%
 ```
