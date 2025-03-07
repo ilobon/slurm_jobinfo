@@ -48,34 +48,32 @@ You can view the jobs in the Slurm queue with `q` (for queue)
 ```
 q
 ```
+will print:
 ```
     JOBID NAME                       USER     STATE      PARTITION NODES  NODELIST(REASON)     CPUS   MIN_MEMORY        TIME     TIME_LEFT
  17222597 nf-NFCORE_RNAFUSION_RNAFUS loboni   RUNNING         ncpu 1      cn028                12     320G        4-05:28:32    3-00:31:28
  17535992 sys/dashboard/sys/bc_deskt loboni   PENDING         ncpu 1      cn085                2      12000M            0:00       4:00:00
 ```
-View only running jobs
+View only **running** jobs
 ```
 qr
 ```
-will print:
 ```
     JOBID NAME                       USER     STATE      PARTITION NODES  NODELIST(REASON)     CPUS   MIN_MEMORY        TIME     TIME_LEFT
  17222597 nf-NFCORE_RNAFUSION_RNAFUS loboni   RUNNING         ncpu 1      cn028                12     320G        4-05:28:32    3-00:31:28
 ```
-View only pending jobs
+View only **pending** jobs
 ```
 qp
 ```
-will print:
 ```
     JOBID NAME                       USER     STATE      PARTITION NODES  NODELIST(REASON)     CPUS   MIN_MEMORY        TIME     TIME_LEFT
  17535992 sys/dashboard/sys/bc_deskt loboni   PENDING         ncpu 1      cn085                2      12000M            0:00       4:00:00
 ```
-You can print the working directory for jobs in the queue, which is particularly useful for jobs submitted by pipelines
+You can print the **working directory** for jobs in the queue, which is particularly useful for jobs submitted by pipelines
 ```
 qwd
 ```
-will print:
 ```
     JOBID NAME                 USER     STATE                                                                                             WORK_DIR
  17222597 nf-NFCORE_RNAFUSION_ loboni   RUNNING            /flask/scratch/turajlics/loboni/nfcore_rnafusion/work/f3/bc01a62110c88ac7bdcd5846aa694e
