@@ -50,33 +50,33 @@ scontrol show job $1
 
 #### 3. Find recently run jobs ####
 
-# Print information on jobs run in the last day
+# Print information on jobs run in the last day - will print the batch step to show max mem used
 ydayinfo(){
         sacct --starttime $(date -d "$date -1 days" +"%Y-%m-%d") --endtime $(date -d "$date +1 days" +"%Y-%m-%d") --format="JobID%9,State%9,JobName%30,Start,End,Elapsed,Timelimit,ReqMem%6,MaxRSS%6,ReqCPUS%5,AllocCPUS%5" --units=G | grep -v ".extern"
 }
 
-# Print information on jobs run in the last week
-weekinfo(){
-        sacct --starttime $(date -d "$date -7 days" +"%Y-%m-%d") --endtime $(date -d "$date +1 days" +"%Y-%m-%d") --format="JobID%9,State%9,JobName%30,Start,End,Elapsed,Timelimit,ReqMem%6,MaxRSS%6,ReqCPUS%5,AllocCPUS%5" --units=G | grep -v ".extern"
-}
-
 # Print jobID, name and working directory of jobs run in the last day
 ydayinfowd(){
-        sacct --starttime $(date -d "$date -1 days" +"%Y-%m-%d") --endtime $(date -d "$date +1 days" +"%Y-%m-%d") --format="JobID%9,State%9,JobName%30,WorkDir%100" --units=G | grep -v ".extern" | grep -v ".batch"
+        sacct --starttime $(date -d "$date -1 days" +"%Y-%m-%d") --endtime $(date -d "$date +1 days" +"%Y-%m-%d") --format="JobID%9,State%9,JobName%28,WorkDir%100" --units=G | grep -v ".extern" | grep -v ".batch"
 }
 
 # Print jobID, name and working directory of jobs run in the last day - for long workdirs
 ydayinfowdlong(){
-        sacct --starttime $(date -d "$date -1 days" +"%Y-%m-%d") --endtime $(date -d "$date +1 days" +"%Y-%m-%d") --format="JobID%9,State%9,JobName%30,WorkDir%300" --units=G | grep -v ".extern" | grep -v ".batch"
+        sacct --starttime $(date -d "$date -1 days" +"%Y-%m-%d") --endtime $(date -d "$date +1 days" +"%Y-%m-%d") --format="JobID%9,State%9,JobName%68,WorkDir%300" --units=G | grep -v ".extern" | grep -v ".batch"
+}
+
+# Print information on jobs run in the last week - will print the batch step to show max mem used
+weekinfo(){
+        sacct --starttime $(date -d "$date -7 days" +"%Y-%m-%d") --endtime $(date -d "$date +1 days" +"%Y-%m-%d") --format="JobID%9,State%9,JobName%30,Start,End,Elapsed,Timelimit,ReqMem%6,MaxRSS%6,ReqCPUS%5,AllocCPUS%5" --units=G | grep -v ".extern"
 }
 
 # Print jobID, name and working directory of jobs run in the last week
-ydayinfowd(){
-        sacct --starttime $(date -d "$date -7 days" +"%Y-%m-%d") --endtime $(date -d "$date +1 days" +"%Y-%m-%d") --format="JobID%9,State%9,JobName%30,WorkDir%100" --units=G | grep -v ".extern" | grep -v ".batch"
+weekinfowd(){
+        sacct --starttime $(date -d "$date -7 days" +"%Y-%m-%d") --endtime $(date -d "$date +1 days" +"%Y-%m-%d") --format="JobID%9,State%9,JobName%28,WorkDir%100" --units=G | grep -v ".extern" | grep -v ".batch"
 }
 
 # Print jobID, name and working directory of jobs run in the last weel - for long workdirs
-ydayinfowdlong(){
-        sacct --starttime $(date -d "$date -7 days" +"%Y-%m-%d") --endtime $(date -d "$date +1 days" +"%Y-%m-%d") --format="JobID%9,State%9,JobName%30,WorkDir%300" --units=G | grep -v ".extern" | grep -v ".batch"
+weekinfowdlong(){
+        sacct --starttime $(date -d "$date -7 days" +"%Y-%m-%d") --endtime $(date -d "$date +1 days" +"%Y-%m-%d") --format="JobID%9,State%9,JobName%68,WorkDir%300" --units=G | grep -v ".extern" | grep -v ".batch"
 }
 
