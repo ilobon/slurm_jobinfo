@@ -3,8 +3,9 @@
 
 ## Set up
 
-All functions are kept in check_job_functions.sh, you can
+All functions are in `check_job_functions.sh`, you can either:
 
-- Paste them directly into your bash_profile or bash_rc
-- Clone the repo and add a source command in your bash_profile or bash_rc
-```source /path/to/scipt```
+a. Paste them directly into your bash_profile or bash_rc
+b. Clone the repo and add a source command in your bash_profile or bash_rc
+
+```source /path/to/repo/check_job_functions.sh```
