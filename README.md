@@ -86,7 +86,6 @@ You can use `jobinfo $JID` with a spefic jobID to see its steps, and if it has f
 jobinfo 17424192
 ```
           JobID                        JobName      State     ReqMem     MaxRSS  Timelimit    Elapsed  ReqCPUS  AllocCPUS        NodeList 
---------------- ------------------------------ ---------- ---------- ---------- ---------- ---------- -------- ---------- --------------- 
        17424192 nf-NFCORE_RNAFUSION_RNAFUSION+  COMPLETED         6G              04:00:00   00:01:54        1          2           cn085 
  17424192.batch                          batch  COMPLETED                 1.65G              00:01:54        2          2           cn085 
 17424192.extern                         extern  COMPLETED                     0              00:01:54        2          2           cn085 
@@ -96,7 +95,6 @@ You can also use it on running jobs but the memory usage is still not available
 jobinfo 17222597
 ```
           JobID                        JobName      State     ReqMem     MaxRSS  Timelimit    Elapsed  ReqCPUS  AllocCPUS        NodeList 
---------------- ------------------------------ ---------- ---------- ---------- ---------- ---------- -------- ---------- --------------- 
        17222597 nf-NFCORE_RNAFUSION_RNAFUSION+    RUNNING       320G            7-06:00:00 4-05:43:59        1         12           cn028 
  17222597.batch                          batch    RUNNING                                  4-05:43:59       12         12           cn028 
 17222597.extern                         extern    RUNNING                                  4-05:43:59       12         12           cn028 
@@ -107,7 +105,6 @@ jobwhere 17222597
 ```
 ```
           JobID              JobName      State                                                                                              WorkDir 
---------------- -------------------- ---------- ---------------------------------------------------------------------------------------------------- 
        17222597 nf-NFCORE_RNAFUSION+    RUNNING              /flask/scratch/turajlics/loboni/nfcore_rnafusion/work/f3/bc01a62110c88ac7bdcd5846aa694e 
 ```
 For long workdirs you can use `jobwherelong` and it is better to pipe into less `jobwherelong $JID | less -S`
@@ -115,7 +112,6 @@ For long workdirs you can use `jobwherelong` and it is better to pipe into less 
 jobwherelong 17222597
 ```
           JobID              JobName      State                                                                                                                                                                                                                                                                                                      WorkDir 
---------------- -------------------- ---------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
        17222597 nf-NFCORE_RNAFUSION+    RUNNING                                                                                                                                                                                                                      /flask/scratch/turajlics/loboni/nfcore_rnafusion/work/f3/bc01a62110c88ac7bdcd5846aa694e
 ```
 You can retrieve easy to read usage percentage for a finished job
