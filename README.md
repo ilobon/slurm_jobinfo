@@ -1,45 +1,6 @@
 # Aliases and functions to check job info in Slurm
 
 
-## Set up
-
-All aliases and functions are in `check_job_functions.sh`, you can either:
-
-#### A. Paste them directly into your bash_profile or bash_rc
-```
-vi ~/.bash_profile
-```
-Press i for insert mode, paste the code, press Esc and write ":wq" to save and quit
-
-#### B. Clone the repo or download the file and add a source command in your bash_profile or bash_rc
-
-Clone the repo
-```
-git clone https://github.com/ilobon/slurm_jobinfo.git
-```
-or download the script on its own
-```
-wget https://github.com/ilobon/slurm_jobinfo/blob/main/check_job_functions.sh
-```
-Then open your bash profile
-```
-vi ~/.bash_profile
-```
-Press i for insert mode, and paste this (susbtituting for your local path to the script):
-```
-source /local/path/to/check_job_functions.sh
-```
-Press Esc and write ":wq" to save and quit
-
-You can get the full path it you are in the script's folder with:
-```
-pwd -P
-```
-
-Once you set it up, the commands will be ready to use when you start a new session. To make them available immediately, you can run
-```
-source ~/.bash_profile
-```
 ## Usage
 
 ### 1. View info about your jobs in the queue 
@@ -91,7 +52,7 @@ jobinfo 17424192
  17424192.batch                          batch  COMPLETED                 1.65G              00:01:54        2          2           cn085 
 17424192.extern                         extern  COMPLETED                     0              00:01:54        2          2           cn085 
 ```
-You can also use it on running jobs but the memory usage is still not available
+You can also use it on running jobs but the memory usage won't be available yet
 ```
 jobinfo 17222597
 ```
@@ -161,3 +122,43 @@ weekinfo
 16749524+ COMPLETED                          batch 2025-02-24T11:01:43 2025-02-28T01:19:26 3-14:17:43                   68.93G    12    12 
 ```
 You can also see the working directories using `weekinfowd` and `weekinfowdlong` in the same way as the "yday" commands.
+
+## Set up
+
+All aliases and functions are in `check_job_functions.sh`, you can either:
+
+#### A. Paste them directly into your bash_profile or bash_rc
+```
+vi ~/.bash_profile
+```
+Press i for insert mode, paste the code, press Esc and write ":wq" to save and quit
+
+#### B. Clone the repo or download the file and add a source command in your bash_profile or bash_rc
+
+Clone the repo
+```
+git clone https://github.com/ilobon/slurm_jobinfo.git
+```
+or download the script on its own
+```
+wget https://github.com/ilobon/slurm_jobinfo/blob/main/check_job_functions.sh
+```
+Then open your bash profile
+```
+vi ~/.bash_profile
+```
+Press i for insert mode, and paste this (susbtituting for your local path to the script):
+```
+source /local/path/to/check_job_functions.sh
+```
+Press Esc and write ":wq" to save and quit
+
+You can get the full path it you are in the script's folder with:
+```
+pwd -P
+```
+
+Once you set it up, the commands will be ready to use when you start a new session. To make them available immediately, you can run
+```
+source ~/.bash_profile
+```
