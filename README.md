@@ -127,3 +127,37 @@ Requested 6 GB and used 1.65G GB, a usage of 27.00%
 
 ### 3. Find info on recently submitted jobs even if they are not in the queue anymore
 
+You can print the info on jobs submitted in the last day
+```
+ydayinfo
+```
+```
+    JobID     State                        JobName               Start                 End    Elapsed  Timelimit ReqMem MaxRSS ReqCP Alloc 
+ 17222560   RUNNING              run_rnafusion_HMF 2025-03-03T11:36:02             Unknown 4-06:04:51 8-00:00:00    16G            1     2 
+17222560+   RUNNING                          batch 2025-03-03T11:36:02             Unknown 4-06:04:51                              2     2 
+ 17222596 COMPLETED nf-NFCORE_RNAFUSION_RNAFUSION+ 2025-03-03T11:37:02 2025-03-06T10:15:04 2-22:38:02 6-06:00:00   320G            1    12 
+17222596+ COMPLETED                          batch 2025-03-03T11:37:02 2025-03-06T10:15:04 2-22:38:02                    4.72G    12    12 
+```
+To print the working directory, add wd to the command
+```
+ydayinfowd
+```
+```
+    JobID     State                      JobName                                                                                              WorkDir 
+ 17222560   RUNNING            run_rnafusion_HMF                                                     /flask/scratch/turajlics/loboni/nfcore_rnafusion 
+ 17222596 COMPLETED nf-NFCORE_RNAFUSION_RNAFUSI+              /flask/scratch/turajlics/loboni/nfcore_rnafusion/work/3e/0fdc647afe9f4eddf7eab96ddc758b 
+```
+If your working directory is longer than 100 characters you can use `ydayinfowdlong` instead, and ideally pipe it into less `| less -S`
+
+To print info on jobs run starting 7 days ago you can run
+```
+weekinfo
+```
+```
+    JobID     State                        JobName               Start                 End    Elapsed  Timelimit ReqMem MaxRSS ReqCP Alloc 
+ 16749520    FAILED nf-NFCORE_RNAFUSION_RNAFUSION+ 2025-02-24T11:01:43 2025-03-02T17:00:49 6-05:59:06 6-06:00:00   320G            1    12 
+16749520+    FAILED                          batch 2025-02-24T11:01:43 2025-03-02T17:00:49 6-05:59:06                   55.88G    12    12 
+ 16749524 COMPLETED nf-NFCORE_RNAFUSION_RNAFUSION+ 2025-02-24T11:01:43 2025-02-28T01:19:26 3-14:17:43 6-06:00:00   320G            1    12 
+16749524+ COMPLETED                          batch 2025-02-24T11:01:43 2025-02-28T01:19:26 3-14:17:43                   68.93G    12    12 
+```
+You can also see the working directories using `weekinfowd` and `weekinfowdlong` in the same way as the "yday" commands.
