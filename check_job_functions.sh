@@ -7,7 +7,7 @@
 #### 1. Check jobs in the queue ####
 
 
-alias sq='squeue -u $(id -un) --format="%.9i %22j %8u %8T %.7M %.13l %6D %20R %6C %11m %E"'
+alias q='squeue -u $(id -un) --format="%.9i %22j %8u %10T %.10M %.13l %6D %20R %6C %11m %E"'
 
 function j() {
       squeue --format='%.18i %.9P %.8j %.8u %.2t %.10M %.6D %.5C %.20R %.20L' -u $(id -un)
@@ -21,7 +21,7 @@ function jp(){
         squeue --format='%.18i %.9P %.8j %.8u %.2t %.10M %.6D %.5C %.20R %.20L' -u $(id -un) | awk '{if($5=="PD")print $0}'
 }
 
-function q() {
+function qw() {
         squeue --format='%10i %.100j %.2t %.10M %.6D %.5C %.20L %.9P %.20R %.150Z' -u $(id -un) | less -S
 }
 
