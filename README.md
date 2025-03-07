@@ -85,11 +85,11 @@ You can use `jobinfo $JID` with a spefic jobID to see its steps, and if it has f
 ```
 jobinfo 17424192
 ```
+```
           JobID                        JobName      State     ReqMem     MaxRSS  Timelimit    Elapsed  ReqCPUS  AllocCPUS        NodeList 
        17424192 nf-NFCORE_RNAFUSION_RNAFUSION+  COMPLETED         6G              04:00:00   00:01:54        1          2           cn085 
  17424192.batch                          batch  COMPLETED                 1.65G              00:01:54        2          2           cn085 
 17424192.extern                         extern  COMPLETED                     0              00:01:54        2          2           cn085 
-
 ```
 You can also use it on running jobs but the memory usage is still not available
 ```
