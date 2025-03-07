@@ -42,7 +42,7 @@ source ~/.bash_profile
 ```
 ## Usage
 
-### View info about your jobs in the queue 
+### 1. View info about your jobs in the queue 
 
 You can view the jobs in the Slurm queue with `q` (for queue)
 ```
@@ -79,4 +79,51 @@ qwd
  17222597 nf-NFCORE_RNAFUSION_ loboni   RUNNING            /flask/scratch/turajlics/loboni/nfcore_rnafusion/work/f3/bc01a62110c88ac7bdcd5846aa694e
 ```
 
-### Retrieve info about a specific job
+### 2. Retrieve info about a specific job
+
+You can use `jobinfo $JID` with a spefic jobID to see its steps, and if it has finished, the max memory used (MaxRSS)
+```
+jobinfo 17424192
+```
+          JobID                        JobName      State     ReqMem     MaxRSS  Timelimit    Elapsed  ReqCPUS  AllocCPUS        NodeList 
+--------------- ------------------------------ ---------- ---------- ---------- ---------- ---------- -------- ---------- --------------- 
+       17424192 nf-NFCORE_RNAFUSION_RNAFUSION+  COMPLETED         6G              04:00:00   00:01:54        1          2           cn085 
+ 17424192.batch                          batch  COMPLETED                 1.65G              00:01:54        2          2           cn085 
+17424192.extern                         extern  COMPLETED                     0              00:01:54        2          2           cn085 
+```
+You can also use it on running jobs but the memory usage is still not available
+```
+jobinfo 17222597
+```
+          JobID                        JobName      State     ReqMem     MaxRSS  Timelimit    Elapsed  ReqCPUS  AllocCPUS        NodeList 
+--------------- ------------------------------ ---------- ---------- ---------- ---------- ---------- -------- ---------- --------------- 
+       17222597 nf-NFCORE_RNAFUSION_RNAFUSION+    RUNNING       320G            7-06:00:00 4-05:43:59        1         12           cn028 
+ 17222597.batch                          batch    RUNNING                                  4-05:43:59       12         12           cn028 
+17222597.extern                         extern    RUNNING                                  4-05:43:59       12         12           cn028 
+```
+To find the working directory of a jobID, you can use `jobwhere`
+```
+jobwhere 17222597
+```
+```
+          JobID              JobName      State                                                                                              WorkDir 
+--------------- -------------------- ---------- ---------------------------------------------------------------------------------------------------- 
+       17222597 nf-NFCORE_RNAFUSION+    RUNNING              /flask/scratch/turajlics/loboni/nfcore_rnafusion/work/f3/bc01a62110c88ac7bdcd5846aa694e 
+```
+For long workdirs you can use `jobwherelong` and it is better to pipe into less `jobwherelong $JID | less -S`
+```
+jobwherelong 17222597
+```
+          JobID              JobName      State                                                                                                                                                                                                                                                                                                      WorkDir 
+--------------- -------------------- ---------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
+       17222597 nf-NFCORE_RNAFUSION+    RUNNING                                                                                                                                                                                                                      /flask/scratch/turajlics/loboni/nfcore_rnafusion/work/f3/bc01a62110c88ac7bdcd5846aa694e
+```
+You can retrieve easy to read usage percentage for a finished job
+```
+jobusage 17424192
+```
+Requested 6 GB and used 1.65G GB, a usage of 27.00%
+```
+
+### 3. Find info on recently submitted jobs even if they are not in the queue anymore
+
