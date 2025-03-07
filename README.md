@@ -127,38 +127,38 @@ You can also see the working directories using `weekinfowd` and `weekinfowdlong`
 
 All aliases and functions are in `check_job_functions.sh`, you can either:
 
-#### A. Paste them directly into your bash_profile or bash_rc
+#### A. Download the file and add a source command in your bash_profile or bash_rc
+```
+cd
+wget https://github.com/ilobon/slurm_jobinfo/blob/main/check_job_functions.sh
+```
+Then open your bash profile and add a source command
 ```
 vi ~/.bash_profile
+# Add:
+source ~/check_job_functions.sh
 ```
-Press i for insert mode, paste the code, press Esc and write ":wq" to save and quit
+Remember to source the bash_profile to make them immediately available
+```
+source ~/.bash_profile
+```
+#### B. Clone the whole repo to download the README too
 
-#### B. Clone the repo or download the file and add a source command in your bash_profile or bash_rc
-
-Clone the repo
 ```
 git clone https://github.com/ilobon/slurm_jobinfo.git
 ```
-or download the script on its own
-```
-wget https://github.com/ilobon/slurm_jobinfo/blob/main/check_job_functions.sh
-```
-Then open your bash profile
-```
-vi ~/.bash_profile
-```
-Press i for insert mode, and paste this (susbtituting for your local path to the script):
+Then open your bash profile and add a source command
 ```
 source /local/path/to/check_job_functions.sh
 ```
-Press Esc and write ":wq" to save and quit
-
-You can get the full path it you are in the script's folder with:
+Remember that you can get the full path it you are in the script's folder with:
 ```
 pwd -P
 ```
 
-Once you set it up, the commands will be ready to use when you start a new session. To make them available immediately, you can run
+#### C. Paste them directly into your bash_profile or bash_rc
+Copy the functions on github 
 ```
-source ~/.bash_profile
+vi ~/.bash_profile
 ```
+Press i for insert mode, paste the code, press Esc and write ":wq" to save and quit
